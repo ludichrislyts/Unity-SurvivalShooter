@@ -52,5 +52,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		bool walking = h != 0f || v != 0f;
 		anim.SetBool ("IsWalking", walking);
+		bool shooting = PlayerShooting.IsShooting;
+		anim.SetBool ("IsShooting", shooting);
 	}
 }

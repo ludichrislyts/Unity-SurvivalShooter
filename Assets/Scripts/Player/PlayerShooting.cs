@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
+	public static bool IsShooting{ get; set;}
 
     void Awake ()
     {
@@ -32,9 +33,12 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+		IsShooting = false;
+
 		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shoot ();
+			IsShooting = true;
         }
 
         if(timer >= timeBetweenBullets * effectsDisplayTime)
